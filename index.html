@@ -24,7 +24,7 @@
             <div class="form-group">
               <input type="text" class="form-control form-control-sm" id="exampleInput1">
             </div>
-            <button type="button" class="btn btn-outline-success btn-sm">Unityに送信</button>
+            <button type="button" class="btn btn-outline-success btn-sm" onclick="unitySendMessage()">Unityに送信</button>
         </div>
 
       </div>
@@ -48,12 +48,15 @@
     document.addEventListener('click', function(e) { 
      if (e.target.id == "unity-canvas") { 
       // Clicked on canvas 
-      unityInstance.SendMessage("GameControl", "FocusCanvas", "1");
+      unityInstance.SendMessage("Button", "FocusCanvas", "1");
      } else { 
       // Clicked outside of canvas 
-      unityInstance.SendMessage("GameControl", "FocusCanvas", "0");
+      unityInstance.SendMessage("Button", "FocusCanvas", "0");
      } 
     }); 
+    function unitySendMessage(params) {
+      unityInstance.SendMessage("Button", "FocusCanvas", $("#exampleInput1").val());
+    }
 </script> 
 </body>
 
