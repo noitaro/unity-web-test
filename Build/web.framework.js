@@ -1297,7 +1297,7 @@ function _emscripten_asm_const_ii(code, a0) {
  return ASM_CONSTS[code](a0);
 }
 STATIC_BASE = GLOBAL_BASE;
-STATICTOP = STATIC_BASE + 2229520;
+STATICTOP = STATIC_BASE + 2229008;
 __ATINIT__.push({
  func: (function() {
   __GLOBAL__sub_I_AccessibilityScriptingClasses_cpp();
@@ -3275,24 +3275,12 @@ __ATINIT__.push({
   ___emscripten_environ_constructor();
  })
 });
-var STATIC_BUMP = 2229520;
+var STATIC_BUMP = 2229008;
 Module["STATIC_BASE"] = STATIC_BASE;
 Module["STATIC_BUMP"] = STATIC_BUMP;
 var tempDoublePtr = STATICTOP;
 STATICTOP += 16;
 assert(tempDoublePtr % 8 == 0);
-function _AddNumbers(x, y) {
- return x + y;
-}
-function _BindWebGLTexture(texture) {
- GLctx.bindTexture(GLctx.TEXTURE_2D, GL.textures[texture]);
-}
-function _Hello() {
- window.alert("Hello, world!");
-}
-function _HelloString(str) {
- window.alert(Pointer_stringify(str));
-}
 function _JS_Cursor_SetImage(ptr, length) {
  var binary = "";
  for (var i = 0; i < length; i++) binary += String.fromCharCode(HEAPU8[ptr + i]);
@@ -3603,15 +3591,8 @@ function _JS_SystemInfo_HasFullscreen() {
 function _JS_SystemInfo_HasWebGL() {
  return Module.SystemInfo.hasWebGL;
 }
-function _PrintFloatArray(array, size) {
- for (var i = 0; i < size; i++) console.log(HEAPF32[(array >> 2) + i]);
-}
-function _StringReturnValueFunction() {
- var returnStr = "bla";
- var bufferSize = lengthBytesUTF8(returnStr) + 1;
- var buffer = _malloc(bufferSize);
- stringToUTF8(returnStr, buffer, bufferSize);
- return buffer;
+function _JavaScriptAlert(str) {
+ window.alert(str);
 }
 function ___atomic_compare_exchange_8(ptr, expected, desiredl, desiredh, weak, success_memmodel, failure_memmodel) {
  var pl = HEAP32[ptr >> 2];
@@ -17352,10 +17333,6 @@ Module.asmLibraryArg = {
  "invoke_vijjii": invoke_vijjii,
  "invoke_vjiiii": invoke_vjiiii,
  "invoke_vjji": invoke_vjji,
- "_AddNumbers": _AddNumbers,
- "_BindWebGLTexture": _BindWebGLTexture,
- "_Hello": _Hello,
- "_HelloString": _HelloString,
  "_JS_Cursor_SetImage": _JS_Cursor_SetImage,
  "_JS_Cursor_SetShow": _JS_Cursor_SetShow,
  "_JS_Eval_ClearInterval": _JS_Eval_ClearInterval,
@@ -17393,8 +17370,7 @@ Module.asmLibraryArg = {
  "_JS_SystemInfo_HasCursorLock": _JS_SystemInfo_HasCursorLock,
  "_JS_SystemInfo_HasFullscreen": _JS_SystemInfo_HasFullscreen,
  "_JS_SystemInfo_HasWebGL": _JS_SystemInfo_HasWebGL,
- "_PrintFloatArray": _PrintFloatArray,
- "_StringReturnValueFunction": _StringReturnValueFunction,
+ "_JavaScriptAlert": _JavaScriptAlert,
  "__ZSt18uncaught_exceptionv": __ZSt18uncaught_exceptionv,
  "___atomic_compare_exchange_8": ___atomic_compare_exchange_8,
  "___atomic_fetch_add_8": ___atomic_fetch_add_8,
