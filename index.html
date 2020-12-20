@@ -33,6 +33,7 @@
 
   <script src="Build/web.loader.js"></script>
   <script>
+    var unityInstance = null;
     createUnityInstance(document.querySelector("#unity-canvas"), {
       dataUrl: "Build/web.data",
       frameworkUrl: "Build/web.framework.js",
@@ -41,7 +42,7 @@
       companyName: "DefaultCompany",
       productName: "New Unity Project",
       productVersion: "0.1",
-    });
+    }).then(x => unityInstance = x);
   </script>
   <script> 
     document.addEventListener('click', function(e) { 
