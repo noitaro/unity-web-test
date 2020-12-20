@@ -43,6 +43,17 @@
       productVersion: "0.1",
     });
   </script>
+  <script> 
+    document.addEventListener('click', function(e) { 
+     if (e.target.id == "unity-canvas") { 
+      // Clicked on canvas 
+      unityInstance.SendMessage("GameControl", "FocusCanvas", "1");
+     } else { 
+      // Clicked outside of canvas 
+      unityInstance.SendMessage("GameControl", "FocusCanvas", "0");
+     } 
+    }); 
+</script> 
 </body>
 
 </html>
