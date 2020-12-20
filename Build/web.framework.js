@@ -3592,7 +3592,7 @@ function _JS_SystemInfo_HasWebGL() {
  return Module.SystemInfo.hasWebGL;
 }
 function _JavaScriptAlert(str) {
- window.alert(str);
+ window.alert(Pointer_stringify(str));
 }
 function ___atomic_compare_exchange_8(ptr, expected, desiredl, desiredh, weak, success_memmodel, failure_memmodel) {
  var pl = HEAP32[ptr >> 2];
